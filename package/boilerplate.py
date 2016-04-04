@@ -10,7 +10,7 @@ import sys
 from collections import namedtuple
 
 # Logging initialization
-LOG = logging.getLogger('script-name')
+LOG = logging.getLogger(__name__)
 LOG_FORMAT = (
     '%(asctime)-15s '
     '(%(levelname).1s) '
@@ -62,12 +62,12 @@ def parse_cli_args():
         help="Print program version and exit."
     )
 
-    parsed_args = parser.parse_args()
+    n = parser.parse_args()
 
     args = Args(
-        numbers=parsed_args.numbers,
-        thing=parsed_args.thing_opt,
-        do_it=parsed_args.do_it,
+        numbers=n.numbers,
+        thing=n.thing_opt,
+        do_it=n.do_it,
     )
 
     return args
